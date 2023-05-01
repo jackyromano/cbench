@@ -1,4 +1,4 @@
-default: benchc benchcpp
+default: test
 CFLAGS = -O2 -Ofast
 CXXFLAGS = -O2 -Ofast
 
@@ -7,4 +7,9 @@ benchc: bench.c
 
 benchcpp : bench.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
+
+test: benchc benchcpp
+	./benchc
+	./benchcpp
+
 
